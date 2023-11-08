@@ -7,11 +7,12 @@ export const Navbar = () => {
 
     const navigate = useNavigate()
 
-    const { authState } = useContext(AuthContext)
+    const { authState, logout } = useContext(AuthContext)
     const { user } = authState
 
     const onLogout = () => {
         //console.log('logout')
+        logout()
         navigate('/login', { replace: true })
     }
 
