@@ -51,7 +51,7 @@ describe('Pruebas en <AppRouter />', () => {
         //screen.debug();
     
         expect(screen.getByText('Marvel Comics')).toBeTruthy()
-        expect(screen.getByText('Marvel').length).toBeGreaterThanOrEqual(1)
+        expect(screen.getAllByText('Marvel').length).toBeGreaterThanOrEqual(1)
 
      })
 })  
