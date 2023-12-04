@@ -58,11 +58,11 @@ export const SearchPage = () => {
             //  : (heroes.length === 0) 
             //  && <div className='alert alert-danger'>No hero with <b>{q}</b></div>
           }
-          <div className='alert alert-primary animate__animated animate__fadeIn'
+          <div data-testid='search-hero' className='alert alert-primary animate__animated animate__fadeIn'
             style={{ display: showSearch ? '' : 'none' }}>
             Search a hero
           </div>
-          <div className='alert alert-danger animate__animated animate__fadeIn'
+          <div data-testid='alert-danger' className='alert alert-danger animate__animated animate__fadeIn'
             style={{ display: showError ? '' : 'none' }}>
             No hero with <b>{q}</b>
           </div>
