@@ -16,10 +16,13 @@ exports[`Pruebas en <SearchPage /> Debe de mostrarse correctamente con valores p
         Searching
       </h4>
       <hr />
-      <form>
+      <form
+        aria-label="form"
+      >
         <input
           autocomplete="off"
           class="form-control"
+          data-testid="searchText"
           name="searchText"
           placeholder="Search a hero"
           type="text"
