@@ -2,7 +2,18 @@ import { fireEvent, render, screen } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import { SearchPage } from "../../../../src/heroes/pages/SearchPage"
 
+
+const mockedUseNavigate = jest.fn()
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate:() => mockedUseNavigate
+}))
+
 describe('Pruebas en <SearchPage />', () => {
+
+
+    beforeEach(()=> jest.clearAllMocks())
 
     test('Debe de mostrarse correctamente con valores por defecto', () => {
 
@@ -65,10 +76,11 @@ describe('Pruebas en <SearchPage />', () => {
         fireEvent.input(searchText, { target: { value: 'superman' } });
         fireEvent.submit(form);
 
-        const img = screen.getByRole('img');
+        //const img = screen.getByRole('img');
 
         expect(searchText.value).toBe('superman');
-        expect(img.src).toContain('/assets/heroes/dc-superman.jpg');
+        expect(mockedUseNavigate).toHaveBeenCalledWith('?q=superman')
+        //expect(img.src).toContain('/assets/heroes/dc-superman.jpg');
 
         //screen.debug();
 
